@@ -1,5 +1,5 @@
 # -*- encoding: utf-8 -*-
-require File.expand_path('../lib/present_foo/version', __FILE__)
+require File.expand_path("../lib/present_foo/version", __FILE__)
 
 Gem::Specification.new do |gem|
 
@@ -16,5 +16,6 @@ Gem::Specification.new do |gem|
   gem.version       = PresentFoo::VERSION
 
   gem.add_development_dependency "rails", "~> 3.2.0"
+  gem.add_development_dependency "rspec", "~> 2.8.0"
 
 end
