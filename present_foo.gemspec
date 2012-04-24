@@ -17,5 +17,6 @@ Gem::Specification.new do |gem|
 
   gem.add_development_dependency "rails", "~> 3.2.0"
   gem.add_development_dependency "rspec", "~> 2.8.0"
+  gem.add_development_dependency "debugger", "1.1.1"
 
 end

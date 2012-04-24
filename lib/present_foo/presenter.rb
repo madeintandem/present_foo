@@ -1,16 +1,11 @@
 class Presenter < SimpleDelegator
 
-  #include Rails.application.routes.url_helpers
-
-  #def default_url_options
-    #ActionMailer::Base.default_url_options if defined?(ActionMailer)
-  #end
-
   def initialize(obj)
     super(obj)
   end
 
-  attr_accessor :request
+  attr_accessor :host
+  alias_method :controller, :host if defined?(::Rails)
 
   def self.new_list(objs)
     objs.map { |o| new(o) }

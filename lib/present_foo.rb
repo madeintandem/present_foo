@@ -2,6 +2,7 @@ require "delegate"
 require "present_foo/version"
 require "present_foo/presenter"
 require "present_foo/presentation"
+require "present_foo/errors"
 
 module PresentFoo
 
