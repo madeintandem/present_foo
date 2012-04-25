@@ -22,20 +22,20 @@ module Presentation
 
   private
 
-  def create_presenter(klass, obj, host, *args)
+  def create_presenter(klass, obj, source, *args)
     arity = klass.method(:initialize).arity
     presenter = (arity > 1) ? klass.new(obj, *args) : klass.new(obj)
-    presenter.host = host
+    presenter.presenting_object = source
     presenter
   end
 
-  def create_many_presenters(klass, objs, host, *args)
-    objs.map { |o| create_presenter(klass, o, host, *args) }
+  def create_many_presenters(klass, objs, source, *args)
+    objs.map { |o| create_presenter(klass, o, source, *args) }
   end
 
-  def set_instance_variable(klass, host, value, obj, pluralize = false)
+  def set_instance_variable(klass, source, value, obj, pluralize = false)
     var_name = "@#{klass.to_s.underscore}#{"s" if pluralize}".to_sym
-    host.instance_variable_set(var_name, value)
+    source.instance_variable_set(var_name, value)
   end
 
   def presenter_klass(obj, arg0)

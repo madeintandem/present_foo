@@ -1,11 +1,13 @@
 class Presenter < SimpleDelegator
 
+  include PresentFoo::Serialization
+
   def initialize(obj)
     super(obj)
   end
 
-  attr_accessor :host
-  alias_method :controller, :host if defined?(::Rails)
+  attr_accessor :presenting_object
+  alias_method :controller, :presenting_object if defined?(::Rails)
 
   def self.new_list(objs)
     objs.map { |o| new(o) }
