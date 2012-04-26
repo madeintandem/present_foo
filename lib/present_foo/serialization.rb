@@ -10,7 +10,8 @@ module PresentFoo::Serialization
   module ClassMethods
 
     def serialize_attributes(*attrs)
-      self._serialized_attributes = attrs.uniq!
+      #key = (attrs[0].is_a?(String) || attrs[0].is_a?(Symbol)) ? attrs[0] : :default
+      #self._serialized_attributes = attrs.uniq!
     end
 
   end

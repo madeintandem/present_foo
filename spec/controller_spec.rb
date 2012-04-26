@@ -1,22 +1,23 @@
 require "spec_helper"
 
-describe BooksController do
+describe "Controllers" do
 
-  let(:controller) { BooksController.new }
+  let(:books_controller) { BooksController.new }
+  let(:products_controller) { ProductsController.new }
 
   it "should have a present method" do
-    controller.respond_to?(:present).should be_true
+    books_controller.respond_to?(:present).should be_true
   end
 
   it "should have a present_many method" do
-    controller.respond_to?(:present_many).should be_true
+    books_controller.respond_to?(:present_many).should be_true
   end
 
-  describe "/index" do
+  describe "#present_many" do
 
     before do
-      controller.index
-      @presenters = controller.instance_variable_get(:@book_presenters)
+      books_controller.index
+      @presenters = books_controller.instance_variable_get(:@book_presenters)
     end
 
     it "assigns @book_presenters" do
@@ -26,11 +27,11 @@ describe BooksController do
 
   end
 
-  describe "/show" do
+  describe "#present" do
 
     before do
-      controller.show
-      @presenter = controller.instance_variable_get(:@book_presenter)
+      books_controller.show
+      @presenter = books_controller.instance_variable_get(:@book_presenter)
     end
 
     it "assigns @book_presenter" do
@@ -39,25 +40,39 @@ describe BooksController do
     end
 
     it "@book_presenter has a presenting_object property" do
-      @presenter.presenting_object.should == controller
+      @presenter.presenting_object.should == books_controller
     end
 
-    it "@book_presenter has a controller property (alias for presenting_object in Rails)" do
-      @presenter.controller.should == controller
+    it "@book_presenter has a books_controller property (alias for presenting_object in Rails)" do
+      @presenter.controller.should == books_controller
     end
 
   end
 
-  describe "/edit" do
+  describe "#present with specified presenter type" do
 
     before do
-      controller.edit
-      @presenter = controller.instance_variable_get(:@alt_book_presenter)
+      books_controller.edit
+      @presenter = books_controller.instance_variable_get(:@alt_book_presenter)
     end
 
     it "assigns @alt_book_presenter (and is the correct type)" do
       @presenter.should_not be_nil
       @presenter.should be_kind_of(AltBookPresenter)
+    end
+
+  end
+
+  describe "#present with arguments" do
+
+    before do
+      products_controller.show
+      @presenter = products_controller.instance_variable_get(:@product_presenter)
+    end
+
+    it "passes arguments to the presenter's initialize method" do
+      @presenter.arg1.should == "foo"
+      @presenter.arg2.should == "bar"
     end
 
   end
