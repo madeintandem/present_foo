@@ -1,7 +1,13 @@
 # PresentFoo
 
 PresentFoo is meant to be a very lightweight presenter library for
-Rails.
+Rails.  Presenters are a great way to move logic out of views and
+controllers into a class which represents the state of a "view" whether
+that be HTML, JSON, or other.  It's also a way to reduce the junk-drawer
+effect that happens in the `/helpers` directory of many large Rails
+applications.  This is a super basic implementation and I hope to grow
+it over time.  If you have thoughts on things that would be helpful I'd
+love the feedback.
 
 ## Installation
 
@@ -143,6 +149,11 @@ pass the class you want to use as the second argument when calling
       end
 
     end
+
+## TODO
+
+1. Do something to assist with serialization scenarios
+2. Make PresentFoo work in non-Rails environments
 
 ## Contributing
 
