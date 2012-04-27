@@ -1,7 +1,5 @@
 class Presenter < SimpleDelegator
 
-  include PresentFoo::Serialization
-
   def initialize(obj, *args)
     super(obj)
   end

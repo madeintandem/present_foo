@@ -1,8 +1,11 @@
 class Book
+
   attr_accessor :title, :author, :isbn, :publish_date
+
   def initialize(*attrs)
     attrs.each { |k,v| self.send("#{k}=".to_sym, v) }
   end
+
 end
 
 class AltBookPresenter < Presenter; end
@@ -31,19 +34,23 @@ end
 class Product; end
 
 class ProductPresenter < Presenter
-  attr_accessor :arg1, :arg2
-  def initialize(obj, arg1, arg2)
-    @arg1 = arg1
-    @arg2 = arg2
+
+  attr_accessor :attr1, :attr2, :attr3
+
+  def initialize(obj, arg1, arg2, arg3)
+    @attr1 = arg1
+    @attr2 = arg2
+    @attr3 = arg3
     super(obj)
   end
+
 end
 
 class ProductsController < ActionController::Base
 
   def show
     product = Product.new
-    present product, "foo", "bar"
+    present product, "foo", "bar", "baz"
   end
 
 end

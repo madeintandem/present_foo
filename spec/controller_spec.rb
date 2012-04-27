@@ -71,8 +71,9 @@ describe "Controllers" do
     end
 
     it "passes arguments to the presenter's initialize method" do
-      @presenter.arg1.should == "foo"
-      @presenter.arg2.should == "bar"
+      @presenter.attr1.should == "foo"
+      @presenter.attr2.should == "bar"
+      @presenter.attr3.should == "baz"
     end
 
   end
