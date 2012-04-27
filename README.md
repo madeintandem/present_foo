@@ -1,3 +1,5 @@
+[![Build Status](https://secure.travis-ci.org/devmynd/present_foo.png)](http://travis-ci.org/devmynd/present_foo)
+
 # PresentFoo
 
 PresentFoo is meant to be a very lightweight presenter library for
@@ -162,4 +164,3 @@ pass the class you want to use as the second argument when calling
 3. Commit your changes (`git commit -am 'Added some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
-
